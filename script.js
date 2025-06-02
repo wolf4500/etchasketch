@@ -16,8 +16,11 @@ let isMouseDown = false;
 
 // Adds background color to the first cell that is clicked down on, otherwise cell is blank.
 document.addEventListener("mousedown", (event) => {
+    event.preventDefault();
     isMouseDown = true;
-    event.target.style.backgroundColor = "black";
+    if (event.target.classList.contains("cell")) {
+        event.target.style.backgroundColor = "black";
+    }
 })
 
 document.addEventListener("mouseup", () => {

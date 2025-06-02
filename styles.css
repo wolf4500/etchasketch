@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-    margin: 50px 0px;
+    margin-top: 50px;
     text-align: center;
     font-weight: bold;
     font-size: 36px;
@@ -27,4 +27,10 @@ body {
 
 .grid-container > div {
     box-sizing: border-box;
+}
+
+.slider-container {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
 }
