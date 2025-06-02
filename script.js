@@ -1,15 +1,30 @@
 const gridContainer = document.querySelector(".grid-container");
 
+// Updates slider value when slider is moved 
+const slider = document.querySelector("#slider");
+const sliderDisplay = document.querySelector(".sliderDisplay");
+slider.addEventListener("input", () => {
+    const value = slider.value;
+    sliderDisplay.textContent = `${value}x${value}`;
+    gridContainer.innerHTML = "";
+    createGrid(slider.value);
+})
+
+
 // Creates the grid cells
-for (let i = 0; i < 16; i++) {
-    for (let n = 0; n < 16; n++) {
-        let div = document.createElement('div');
-        const size = (500/16);
-        div.setAttribute("style", `border: 1px solid black; width: ${size}px; height: ${size}px;`);
-        div.setAttribute("class", `cell`);
-        gridContainer.append(div);
+function createGrid(sliderValue) {
+    for (let i = 0; i < sliderValue; i++) {
+        for (let n = 0; n < sliderValue; n++) {
+            let div = document.createElement('div');
+            const size = (500/sliderValue);
+            div.setAttribute("style", `border: 1px solid black; width: ${size}px; height: ${size}px;`);
+            div.setAttribute("class", `cell`);
+            gridContainer.append(div);
+        }
     }
 }
+
+createGrid(16);
 
 // Flag to check if mouse is clicked down
 let isMouseDown = false;
@@ -34,10 +49,4 @@ gridContainer.addEventListener('mouseover', (event) => {
     }
 })
 
-const slider = document.querySelector("#slider");
-const sliderDisplay = document.querySelector(".sliderDisplay");
 
-slider.addEventListener("input", () => {
-    const value = slider.value;
-    sliderDisplay.textContent = `${value}x${value}`;
-})

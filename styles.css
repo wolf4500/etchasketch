@@ -32,6 +32,7 @@ body {
 .slider-container {
     margin: 25px 0;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -39,3 +40,8 @@ body {
     width: 300px;
     cursor: pointer;
 }
+
+.sliderDisplay {
+    text-align: center;
+    width: 75px;
+} 
