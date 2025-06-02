@@ -16,10 +16,10 @@ let isMouseDown = false;
 
 // Adds background color to the first cell that is clicked down on, otherwise cell is blank.
 document.addEventListener("mousedown", (event) => {
-    event.preventDefault();
     isMouseDown = true;
     if (event.target.classList.contains("cell")) {
         event.target.style.backgroundColor = "black";
+        event.preventDefault();
     }
 })
 
@@ -32,4 +32,12 @@ gridContainer.addEventListener('mouseover', (event) => {
     if (event.target.classList.contains("cell") && isMouseDown) {
         event.target.style.backgroundColor = "black";
     }
+})
+
+const slider = document.querySelector("#slider");
+const sliderDisplay = document.querySelector(".sliderDisplay");
+
+slider.addEventListener("input", () => {
+    const value = slider.value;
+    sliderDisplay.textContent = `${value}x${value}`;
 })
