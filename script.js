@@ -6,18 +6,22 @@ const sliderDisplay = document.querySelector(".sliderDisplay");
 slider.addEventListener("input", () => {
     const value = slider.value;
     sliderDisplay.textContent = `${value}x${value}`;
+})
+
+const apply = document.querySelector(".apply");
+apply.addEventListener("click", () => {
     gridContainer.innerHTML = "";
     createGrid(slider.value);
 })
-
 
 // Creates the grid cells
 function createGrid(sliderValue) {
     for (let i = 0; i < sliderValue; i++) {
         for (let n = 0; n < sliderValue; n++) {
             let div = document.createElement('div');
-            const size = (500/sliderValue);
-            div.setAttribute("style", `border: 1px solid black; width: ${size}px; height: ${size}px;`);
+            const size = (600/sliderValue);
+            div.setAttribute("style", `border-top: 0.5px; border-right: 0.5px; border-bottom: 0px; border-left: 0px;
+                            border-style: solid; border-color: black; width: ${size}px; height: ${size}px;`);
             div.setAttribute("class", `cell`);
             gridContainer.append(div);
         }
